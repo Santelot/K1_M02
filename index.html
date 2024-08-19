@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Misión</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #ffeb3b;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .nav-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .nav-buttons button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-6').style.display = 'none';
+            }
+        }
+
+        function navigateTo(id) {
+            var element = document.getElementById(id);
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook K1 - M02</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+    <!-- Actividad 1 (3 pasos) -->
+    <div id="activity-1" class="activity">
+        <div class="banner" onclick="toggleContent('saludo_ritual')">
+            <div class="title">
+                <span>📚 Actividad 1: Saludo y Ritual Gnius Club (3 pasos)</span>
+                <span>⏰ Tiempo: 4 minutos</span>
+            </div>
+            <div class="subtitle">Recepción de los genios y motivación para la actividad</div>
+        </div>
+        <div id="saludo_ritual" class="content">
+            <div class="section">
+                <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 1 "Gnius Club"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">🌟 ¡Hola, genios! 🌟 ¡Qué gusto verlos de nuevo! Hoy tenemos una nueva misión muy especial, y vamos a seguir construyendo cosas increíbles. ¿Están listos para usar esos bloques y crear algo nuevo? ¡Va a ser súper divertido!</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 2 (1 minuto): Mantener la Diapositiva 1</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Hoy vamos a usar nuestros bloques para construir algo aún más grande y genial que antes. ¡Prepárense, porque la imaginación va a volar! 🧱</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 3 (1 minuto): Mantener la Diapositiva 1</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Vamos a comenzar moviéndonos un poquito para estar bien despiertos. Si están emocionados por construir, ¡den una vuelta en su lugar y toquen el suelo! ¡Vamos a llenar esta clase de energía!</div>
+            </div>
+        </div>
+    </div>
+<!-- Actividad 2 (2 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('cancion_baile')">
+        <div class="title">
+            <span>🎵 Actividad 2: Canción y Baile del Día (2 pasos)</span>
+            <span>⏰ Tiempo: 4 minutos</span>
+        </div>
+        <div class="subtitle">Movimiento y diversión a través de la música</div>
+    </div>
+    <div id="cancion_baile" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 2 "Canción y Baile del Día"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">🎵 ¡Es hora de bailar y cantar juntos! Hoy vamos a divertirnos con una canción súper alegre que nos hará movernos mucho. ¿Listos para aplaudir y mover todo el cuerpo? ¡Vamos a divertirnos! 🎉</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (3 minutos): Proyectar el video de la canción y guiar a los genios en los movimientos.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Vamos a seguir el ritmo de la canción! 🎶 Si tienes muchas ganas de aplaudir, ¡aplaude fuerte! 👏👏 Si tienes ganas de mover los pies, ¡muévelos! Vamos, genios, ¡a disfrutar y bailar todos juntos! 🌟</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 3 (6 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('formacion_equipos')">
+        <div class="title">
+            <span>📚 Actividad 3: Formación de Equipos (6 pasos)</span>
+            <span>⏰ Tiempo: 7.5 minutos</span>
+        </div>
+        <div class="subtitle">Organización de los genios en equipos de trabajo</div>
+    </div>
+    <div id="formacion_equipos" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 3 "Formación de Equipos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, hoy vamos a trabajar juntos en equipos de 4. ¡Los juegos y las construcciones son más divertidos cuando lo hacemos con amigos! Vamos a formar los equipos para la próxima misión.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (3 minutos): Mantener la Diapositiva 3</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, quiero que se junten con otros 3 compañeros. Así, cada equipo tendrá 4 genios listos para construir juntos. ¡Busquen a sus amigos y formen su equipo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Mantener la Diapositiva 3</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Todos ya tienen su equipo? ¡Genial! Ahora, miren a sus compañeros y digan "¡Hola, equipo!" ¡Van a hacer un gran trabajo juntos!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Mantener la Diapositiva 3</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Recuerden, genios, que lo más importante es compartir y ayudarnos unos a otros. ¡Cuanto mejor trabajen juntos, más divertidas serán nuestras construcciones!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (1 minuto): Mantener la Diapositiva 3</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Muy bien, equipos! Es hora de preparar sus bloques y estar listos para construir. ¡Vamos a hacer algo increíble juntos!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (1.5 minutos): Mantener la Diapositiva 3</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Yo voy a ayudar a formar los grupos, y los maestros que me acompañan también van a ayudar. Cuando estén en su equipo, denle la bienvenida a sus compañeros con una gran sonrisa y un "hola". ¡Vamos a hacer los mejores equipos de genios! 💪</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 4 (4 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('actividad_calentamiento')">
+        <div class="title">
+            <span>🧱 Actividad 4: Actividad de Calentamiento (4 pasos)</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Exploración individual con ladrillos</div>
+    </div>
+    <div id="actividad_calentamiento" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 4 "Construcción Individual: El Pato"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ahora vamos a hacer un pequeño calentamiento antes de la gran misión. Quiero que usen sus bloques para construir un pato. ¡Sí, un pato! 🦆 ¡Vamos a ver qué tan creativos pueden ser!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Mantener la Diapositiva 4</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Cada uno de ustedes va a usar sus propios bloques para hacer un pato. No hay reglas, solo usen su imaginación y construyan su mejor pato. ¡Vamos a ver esos patos! 🧱</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (6 minutos): Proyectar un cronómetro de 5 minutos</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Tiempo para construir, genios! Tienen 5 minutos para hacer su mejor pato. ¡Manos a la obra! ⏰</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (2 minutos): Mantener el cronómetro visible mientras termina el tiempo</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Se acabó el tiempo! Genios, levanten sus patos y muéstrenselos a sus compañeros. ¡Qué increíbles creaciones! Cada uno de ustedes hizo un pato único. ¡Gran trabajo! 🦆</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 5 (6 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('desafio_guiado')">
+        <div class="title">
+            <span>🧱 Actividad 5: Desafío Guiado (6 pasos)</span>
+            <span>⏰ Tiempo: 18 minutos</span>
+        </div>
+        <div class="subtitle">Construyendo la torre más alta en equipo</div>
+    </div>
+    <div id="desafio_guiado" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 5 "Desafío Guiado: Construyendo Juntos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ¡ha llegado el momento de un desafío súper divertido! Esta vez, van a trabajar todos juntos en su equipo para construir la torre más alta que puedan. ¡Imaginen hasta dónde puede llegar!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (3 minutos): Mantener la Diapositiva 5</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Cada equipo tiene todos sus bloques listos, ¡y ahora es el momento de ponerse a construir! Recuerden trabajar juntos y usar todas sus piezas para hacer la torre más alta. ¡Vamos a ver hasta dónde pueden llegar!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (10 minutos): Proyectar un cronómetro de 10 minutos</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Hora de construir, genios! Tienen 10 minutos para levantar la torre más alta posible. ¡Trabajen juntos y hagan su mejor esfuerzo! Si necesitan ayuda o tienen una idea, compartanla con su equipo y con los maestros que están aquí para ayudarlos. ¡Adelante! ⏰</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Mantener el cronómetro visible mientras continúa la construcción</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Qué torres tan impresionantes están construyendo! Recuerden, genios, que lo importante es trabajar juntos, escuchar las ideas de sus compañeros y ayudarse mutuamente para que su torre sea lo más alta y fuerte posible. 🌟</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (1 minuto): Proyectar Diapositiva 6 "¡Qué torres tan altas!"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Se acabó el tiempo! Ahora, miren las torres que construyeron. ¿Hasta dónde llegaron? 🎉 ¡Increíbles! Tómense un momento para ver lo que hicieron los otros equipos y compartan lo que más les gustó de sus propias torres. ¡Lo hicieron excelente, genios!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (2 minutos): Proyectar Diapositiva 7 "¡Gran Trabajo, Genios!"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, hoy demostraron que cuando trabajan juntos, pueden lograr cosas increíbles. ¡Miren lo alto que llegaron! Esto es solo el comienzo de lo que pueden construir cuando ponen su creatividad y trabajo en equipo en acción. ¡Estoy muy orgulloso de ustedes!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 6 (3 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">
+            <span>🙏 Actividad 6: Honor The Dojo y Despedida (3 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Recogida de ladrillos y despedida</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 8 "Honor The Dojo: Recogida de Ladrillos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ¡qué gran trabajo hicieron hoy! Ahora es momento de recoger todos los ladrillos que usamos y llevarlos al frente para guardarlos. ¡Así mantenemos todo en orden para la próxima misión!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Mantener la Diapositiva 8</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Genios, qué día tan divertido hemos tenido! ¿Les gustó construir esas torres tan altas? Si les gustó la clase de hoy, ¡levanten los brazos y agiten sus manos como si estuvieran saludando al mundo entero! 🌍🙌</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 9 "¡Hasta la próxima, genios!"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Y ahora es momento de decir adiós, genios. ¡Gracias por venir y por construir cosas tan increíbles hoy! Nos vemos en la próxima misión, donde habrá más diversión y muchas más aventuras. ¡Hasta pronto, genios! 👋</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateActivities() {
+        var selectedTime = document.getElementById('time-select').value;
+        var activities = document.getElementsByClassName('activity');
+
+        document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+        for (var i = 0; i < activities.length; i++) {
+            activities[i].style.display = 'block';
+        }
+
+        if (selectedTime === '45') {
+            document.getElementById('activity-2').style.display = 'none';
+        } else if (selectedTime === '40') {
+            document.getElementById('activity-2').style.display = 'none';
+            document.getElementById('activity-6').style.display = 'none';
+        }
+    }
+</script>
+
+</div>
+
+<!-- Scripts adicionales si es necesario -->
+<script>
+    // Agregar scripts adicionales aquí si es necesario
+</script>
+
+</body>
+</html>
