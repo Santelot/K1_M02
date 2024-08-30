@@ -111,15 +111,19 @@
         if (selectedLevel === 'Kinder 1') {
             document.getElementById('activity-41').style.display = 'block';
             document.getElementById('activity-51').style.display = 'block';
-            document.getElementById('activity-3').style.display = 'none'; // Ocultar Actividad 3 para Kinder 1
+            document.getElementById('activity-31').style.display = 'none'; // Ocultar Actividad 3 para Kinder 1
+            document.getElementById('activity-32').style.display = 'none'; // Ocultar Actividad 3 para Kinder 1
         } else {
             // Mostrar Actividad 3 y la actividad correspondiente a Kinder 2 o Kinder 3
-            document.getElementById('activity-3').style.display = 'block';
             document.getElementById('activity-42').style.display = 'block';
             if (selectedLevel === 'Kinder 2') {
                 document.getElementById('activity-52').style.display = 'block';
+                document.getElementById('activity-31').style.display = 'block';
+                document.getElementById('activity-32').style.display = 'none';
             } else if (selectedLevel === 'Kinder 3') {
                 document.getElementById('activity-53').style.display = 'block';
+                document.getElementById('activity-31').style.display = 'none';
+                document.getElementById('activity-32').style.display = 'block';
             }
         }
     }
@@ -172,7 +176,7 @@
         document.getElementById('activity-51-dialogue').innerHTML = 
             '¡Hora de construir, genios! Tienen ' + activity5StepTime + ' minutos para levantar la torre más alta posible. ¡Hagan su mejor esfuerzo! Si necesitan ayuda o tienen una idea, compártanla con los maestros que están aquí para ayudarlos. ¡Adelante! ⏰';
         document.getElementById('activity-52-dialogue').innerHTML = 
-            '¡Hora de construir, genios! Tienen ' + activity5StepTime + ' minutos para levantar la torre más alta posible. ¡Trabajen juntos y hagan su mejor esfuerzo! Si necesitan ayuda o tienen una idea, compártanla con su equipo y con los maestros que están aquí para ayudarlos. ¡Adelante! ⏰';
+            '¡Hora de construir, genios! Tienen ' + activity5StepTime + ' minutos para levantar la torre más alta posible. ¡Trabajen juntos y hagan su mejor esfuerzo! Si necesitan ayuda o tienen una idea, compártanla con su compañero y con los maestros que están aquí para ayudarlos. ¡Adelante! ⏰';
        document.getElementById('activity-53-dialogue').innerHTML = 
             '¡Hora de construir, genios! Tienen ' + activity5StepTime + ' minutos para levantar la torre más alta posible. ¡Trabajen juntos y hagan su mejor esfuerzo! Si necesitan ayuda o tienen una idea, compártanla con su equipo y con los maestros que están aquí para ayudarlos. ¡Adelante! ⏰';
 
@@ -283,11 +287,50 @@
     </div>
     </div>
 
-    <!-- Actividad 3 -->
-    <div id="activity-3" class="activity">
+    <!-- Actividad 3 Versión 1 (Kinder 2) -->
+    <div id="activity-31" class="activity">
         <div class="banner" onclick="toggleContent('formacion_equipos')">
         <div class="title">
             <span>📚 Actividad 3: Formación de Equipos (6 pasos)</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Organización de los genios en equipos de trabajo</div>
+    </div>
+    <div id="formacion_equipos" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 4 "Formación de Equipos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, hoy vamos a trabajar juntos en equipos de 2. ¡Los juegos y las construcciones son más divertidos cuando lo hacemos con amigos! Vamos a formar los equipos para la próxima misión.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (3 minutos): Mantener la Diapositiva 4</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Yo voy a ayudar a formar las parejas, y los maestros que me acompañan también van a ayudar. Cuando estén en su equipo, denle la bienvenida a sus compañeros con una gran sonrisa y un "hola". ¡Vamos a hacer los mejores equipos de genios! 💪 
+         </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Mantener la Diapositiva 4</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Todos ya tienen su pareja? ¡Genial! Ahora, miren a sus compañeros y digan "¡Hola, equipo!" ¡Van a hacer un gran trabajo juntos!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Mantener la Diapositiva 4</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Recuerden, genios, que lo más importante es compartir y ayudarnos unos a otros. ¡Cuanto mejor trabajen juntos, más divertidas serán nuestras construcciones!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (0.5 minutos): Mantener la Diapositiva 4</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Muy bien, genios! Es hora de preparar sus bloques y estar listos para construir. ¡Vamos a hacer algo increíble juntos!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actividad 3 Versión 2 (Kinder 3) -->
+    <div id="activity-32" class="activity">
+        <div class="banner" onclick="toggleContent('formacion_equipos')">
+        <div class="title">
+            <span>📚 Actividad 3: Formación de Equipos k3(6 pasos)</span>
             <span>⏰ Tiempo: 5 minutos</span>
         </div>
         <div class="subtitle">Organización de los genios en equipos de trabajo</div>
@@ -301,7 +344,8 @@
         <div class="section">
             <div class="step-title">Paso 2 (3 minutos): Mantener la Diapositiva 4</div>
             <div class="section-title">Diálogo del Maestro</div>
-            <div class="dialogue">Yo voy a ayudar a formar los grupos, y los maestros que me acompañan también van a ayudar. Cuando estén en su equipo, denle la bienvenida a sus compañeros con una gran sonrisa y un "hola". ¡Vamos a hacer los mejores equipos de genios! 💪</div>
+            <div class="dialogue">Yo voy a ayudar a formar los grupos, y los maestros que me acompañan también van a ayudar. Cuando estén en su equipo, denle la bienvenida a sus compañeros con una gran sonrisa y un "hola". ¡Vamos a hacer los mejores equipos de genios! 💪 
+         </div>
         </div>
         <div class="section">
             <div class="step-title">Paso 3 (0.5 minutos): Mantener la Diapositiva 4</div>
@@ -318,7 +362,7 @@
             <div class="section-title">Diálogo del Maestro</div>
             <div class="dialogue">¡Muy bien, equipos! Es hora de preparar sus bloques y estar listos para construir. ¡Vamos a hacer algo increíble juntos!</div>
         </div>
-</div>
+      </div>
     </div>
 
     <!-- Actividad 4 - Versión 1 (Kinder 1) -->
@@ -374,7 +418,7 @@
         <div class="section">
             <div class="step-title">Paso 2 (0.5 minuto): Mantener la Diapositiva 5</div>
             <div class="section-title">Diálogo del Maestro</div>
-            <div class="dialogue">Cada uno de ustedes va a usar sus propios bloques para hacer un pato. No hay reglas, solo usen su imaginación y construyan su mejor pato. ¡Vamos a ver esos patos! 🧱</div>
+            <div class="dialogue">Cada uno de ustedes va a usar sus propios bloques para hacer un pato. Pueden compartir ideas pero cada uno deberá tener su pato. No hay reglas, solo usen su imaginación y construyan su mejor pato. ¡Vamos a ver esos patos! 🧱</div>
         </div>
         <div class="section">
             <div class="step-title">Paso 3 <span id="activity-42-step-time">(9 minutos)</span>: Usar el temporizador visual para medir el tiempo de construcción</div> <!-- Este tiempo se actualizará dinámicamente -->
@@ -451,18 +495,18 @@
         <div class="section">
             <div class="step-title">Paso 1 (0.5 minuto): Proyectar Diapositiva 6 "Desafío Guiado: Construyendo Juntos"</div>
             <div class="section-title">Diálogo del Maestro</div>
-            <div class="dialogue">Genios, ¡ha llegado el momento de un desafío súper divertido! Esta vez, van a trabajar todos juntos en su equipo para construir la torre más alta que puedan. ¡Imaginen hasta dónde puede llegar!</div>
+            <div class="dialogue">Genios, ¡ha llegado el momento de un desafío súper divertido! Esta vez, van a trabajar con su pareja para construir la torre más alta que puedan. ¡Imaginen hasta dónde puede llegar!</div>
         </div>
         <div class="section">
             <div class="step-title">Paso 2 (1 minuto): Mantener la Diapositiva 6</div>
             <div class="section-title">Diálogo del Maestro</div>
-            <div class="dialogue">Cada equipo tiene todos sus bloques listos, ¡y ahora es el momento de ponerse a construir! Recuerden trabajar juntos y usar todas sus piezas para hacer la torre más alta. ¡Vamos a ver hasta dónde pueden llegar!</div>
+            <div class="dialogue">Cada pareja tiene todos sus bloques listos, ¡y ahora es el momento de ponerse a construir! Recuerden trabajar juntos y usar todas sus piezas para hacer la torre más alta. ¡Vamos a ver hasta dónde pueden llegar!</div>
         </div>
         <div class="section">
             <div class="step-title">Paso 3 <span id="activity-52-step-time">(15 minutos)</span>: Utilizar el temporizador visual para medir el tiempo del desafío</div>
             <div class="section-title">Diálogo del Maestro</div>
             <div class="dialogue" id="activity-52-dialogue">
-                ¡Hora de construir, genios! Tienen 15 minutos para levantar la torre más alta posible. ¡Trabajen juntos y hagan su mejor esfuerzo! Si necesitan ayuda o tienen una idea, compártanla con su equipo y con los maestros que están aquí para ayudarlos. ¡Adelante! ⏰
+                ¡Hora de construir, genios! Tienen 15 minutos para levantar la torre más alta posible. ¡Trabajen juntos y hagan su mejor esfuerzo! Si necesitan ayuda o tienen una idea, compártanla con su compañero y con los maestros que están aquí para ayudarlos. ¡Adelante! ⏰
             </div>
         </div>
         <div class="section">
